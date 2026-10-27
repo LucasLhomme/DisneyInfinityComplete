@@ -4,7 +4,7 @@
 
 A lightweight, 100% stable content unlock mod for **Disney Infinity 3.0: Gold Edition (PC, Steam)**, powered by **CrabeLoader**.
 
-This mod surfaces all fully completed, official figures and costumes that already ship inside the PC Steam release archives but are hidden or locked on PC, paired with AaBysT's famous **"Any Character in Any Playset"** system.
+This mod surfaces all fully completed, official figures and costumes that already ship inside the PC Steam release archives but are hidden or locked on PC.
 
 > [!NOTE]
 > **No game files are modified on disk.** All unlocks and patches are applied cleanly in memory at runtime.
@@ -35,14 +35,6 @@ Every character is registered directly into the in-game character grid through t
 
 ---
 
-## 🔓 Any Character in Any Playset (Anyone Can Cook II)
-
-Ported from AaBysT's legendary native patch engine:
-- **Play as anyone, anywhere:** Take Black Panther into the Star Wars galaxy, explore Marvel Battlegrounds with Alice, or bring King Mickey into the Twilight of the Republic playset.
-- **Toggle anytime:** Press **F5 > Heroes > Any character in any playset** (saved persistently across sessions).
-
----
-
 ## ⚔️ Direct Warps (F5 Menu)
 
 - **Marvel Battlegrounds (1.05):** Instant access to the Avengers HQ campaign hub, combat tutorial, versus hub, and the seven official battle arenas:
@@ -61,7 +53,6 @@ Ported from AaBysT's legendary native patch engine:
        └── disney_infinity_complete/
            ├── mod.json
            ├── disney_infinity_complete.lua
-           ├── playset_bypass.lua
            ├── dory_avatars_patch.lua
            └── characters/
    ```
@@ -69,7 +60,7 @@ Ported from AaBysT's legendary native patch engine:
 
 ---
 
-## ℹ️ Scope & Finding Dory Note
+## 🤝 Compatibility
 
-- **Finding Dory (1.06):** Dory & Nemo require dedicated 3D aquatic swimming physics (`SwimMode`) and converted console assets. They are developed in a separate native expansion mod (`update_106`) to keep this mod lightweight, pure Lua, and 100% bug-free.
-- **Unfinished Prototypes:** Cancelled figurines with missing textures or no animations (Maui, Peter Pan, Spider-Gwen) are intentionally excluded from this stable release.
+- **CrabeMenu:** Fully compatible. If you wish to play as any hero in any playset, that feature is directly available in CrabeMenu's *Player & Heroes* options.
+- **Save Games:** Safe to add or remove at any time without altering your progression or save files.

@@ -1,9 +1,7 @@
 -- Disney Infinity Complete
 -- Direct warps to the Marvel Battlegrounds (1.05), Finding Dory (1.06),
--- unreleased and prototype worlds, instant hero swaps, and "Any Character in Any Playset".
+-- unreleased and prototype worlds, and instant hero swaps.
 -- Only worlds and actors present in the Steam release's archives are listed.
-
-local PlaysetBypass = require("mods.disney_infinity_complete.playset_bypass")
 
 local MARVEL_BATTLEGROUNDS = {
     { "MBA_Campaign_Intro",   "Campaign prologue" },
@@ -338,31 +336,7 @@ local function entries(rows, run)
     return items
 end
 
--- The "Any Character in Any Playset" switch, shared by both menus it appears in.
-local function bypassToggleEntry()
-    return {
-        label = "Any Character in Any Playset (AaBysT)",
-        toggle = true,
-        state = PlaysetBypass.isEnabled(),
-        onToggle = function(on) return PlaysetBypass.setEnabled(on) end,
-    }
-end
-
--- CrabeMenu ships the same eleven patches natively (Player & Heroes > Any
--- character in any playset). When it is installed it owns the bytes, the Lua
--- layer and the saved choice, and this mod only adds the playset actor lists;
--- two owners would undo each other. mod.json loads this mod after CrabeMenu so
--- its export already exists here.
-local nativeBypass = Crabe.Exports and Crabe.Exports["crabemenu.playsetBypass"]
-
 local heroItems = entries(HEROES, swapCharacter)
-if nativeBypass then
-    PlaysetBypass.installActorPatches()
-else
-    PlaysetBypass.init()
-    table.insert(heroItems, 1, bypassToggleEntry())
-    Crabe.Menu.registerInCategory("Heroes", bypassToggleEntry())
-end
 Crabe.Menu.register({
     label = "Disney Infinity Complete",
     submenu = {
