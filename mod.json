@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "minLoaderVersion": "0.2.0",
   "author": "Lucas Lhomme",
-  "description": "Direct warps to the Marvel Battlegrounds (1.05) and Finding Dory (1.06) worlds and unreleased playable figures for Disney Infinity 3.0 PC Gold Edition.",
+  "description": "Direct warps to Marvel Battlegrounds arenas and instant access to 11 unreleased playable figures for Disney Infinity 3.0 PC Gold Edition.",
   "entry": "disney_infinity_complete.lua",
   "loadAfter": ["local.crabemenu"]
 }

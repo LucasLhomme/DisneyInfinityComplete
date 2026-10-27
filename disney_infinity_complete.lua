@@ -1,6 +1,6 @@
 -- Disney Infinity Complete
--- Direct warps to the Marvel Battlegrounds (1.05), Finding Dory (1.06),
--- unreleased and prototype worlds, and instant hero swaps.
+-- Direct warps to the Marvel Battlegrounds (1.05) arenas,
+-- prototype worlds, and instant swaps for all 11 unlocked figures.
 -- Only worlds and actors present in the Steam release's archives are listed.
 
 local MARVEL_BATTLEGROUNDS = {
@@ -19,34 +19,6 @@ local MARVEL_BATTLEGROUNDS = {
     { "MBA_Cash_In_Screen",   "Rewards screen" },
 }
 
-local FINDING_DORY = {
-    { "DOR_Reef",          "Great Barrier Reef (1.06 Main Hub)" },
-    { "DOR_Intro",         "Playset Prologue (DOR_Intro)" },
-    { "DOR_Cave",          "Restored Cave (Playset mode)" },
-    { "DOR_OE_MA",         "Open Ocean - Zone A" },
-    { "DOR_OE_MB",         "Open Ocean - Zone B" },
-    { "DOR_OE_MC",         "Open Ocean - Zone C" },
-    { "DOR_PI_MA",         "Pipes - Section A" },
-    { "DOR_PI_MB",         "Pipes - Section B" },
-    { "DOR_PI_MC",         "Pipes - Section C" },
-    { "DOR_PI_MD",         "Pipes - Section D" },
-    { "DOR_QU_MA",         "Quarantine Tank - Zone A" },
-    { "DOR_QU_MB",         "Quarantine Tank - Zone B" },
-    { "DOR_QU_MC",         "Quarantine Tank - Zone C" },
-    { "DOR_TP_MA",         "Touch Pool - Zone A" },
-    { "DOR_TP_MB",         "Touch Pool - Zone B" },
-    { "DOR_TP_MC",         "Touch Pool - Zone C" },
-    { "DOR_2D_Master",     "2D Side-Scroll Master Zone" },
-    { "DOR_3D_Master",     "3D Master Zone" },
-    { "Holo_DOR_TestTank", "Holographic Test Tank" },
-    -- Toy Box Free Roam variants
-    { "Dory_Reef_TB",      "Great Barrier Reef - Free Roam (Toy Box)" },
-    { "Dory_Cave_TB",      "Cave - Free Roam (Toy Box)" },
-    { "Dory_QU_MA_TB",     "Quarantine Tank A - Free Roam (Toy Box)" },
-    { "Dory_TP_MC_TB",     "Touch Pool C - Free Roam (Toy Box)" },
-    { "Dory_OE_MA_TB",     "Open Ocean A - Free Roam (Toy Box)" },
-    { "Dory_PI_MA_TB",     "Pipes A - Free Roam (Toy Box)" },
-}
 
 local MOANA = {
     { "MOA_Motunui",               "Motunui (playset intro)" },
@@ -178,43 +150,20 @@ local TOY_BOX_PROTOTYPES = {
 }
 
 local HEROES = {
-    -- Patch 1.05 & 1.06 Released Heroes
-    { "AVG_BlackPanther",           "Black Panther (1.05)" },
-    { "AVG_AntMan",                 "Ant-Man (1.05)" },
-    { "AVG_Vision",                 "Vision (1.05)" },
-    { "AVG_CaptainAmerica_CW",      "Captain America - Civil War (1.05)" },
-    { "SPD_Spiderman_Black",        "Spider-Man - Black Suit (1.05)" },
-    { "DOR_Dory",                   "Dory (1.06)" },
-    { "DOR_Nemo",                   "Nemo (1.06)" },
-    { "DOR_Hank",                   "Hank (1.06)" },
-    { "DOR_Destiny",                "Destiny (1.06)" },
-    { "DOR_Bailey",                 "Bailey (1.06)" },
-    { "DOR_Marlin",                 "Marlin (1.06)" },
-    { "ALI_Alice",                  "Alice (1.06)" },
-    { "ALI_MadHatter",              "The Mad Hatter (1.06)" },
-    { "ALI_Time",                   "Time (1.06)" },
-    { "TBX_Baloo",                  "Baloo (1.05)" },
-    { "TCW_MaceWindu",              "Mace Windu (Star Wars)" },
+    -- Marvel Battlegrounds (1.05)
+    { "AVG_BlackPanther",           "Black Panther" },
+    { "AVG_AntMan",                 "Ant-Man" },
+    { "AVG_Vision",                 "Vision" },
+    { "AVG_CaptainAmerica_CW",      "Captain America (Civil War)" },
+    { "SPD_Spiderman_Black",        "Spider-Man (Black Suit)" },
 
-    -- Unreleased DI3 / DI4 Figures
-    { "MOA_Maui",                   "Maui (Moana) - unfinished: no textures, frozen" },
-    { "SPD_SpiderGwen",             "Spider-Gwen (Marvel)" },
-    { "TBX_PeterPan",               "Peter Pan (Disney)" },
-    { "TRN_Clu",                    "Clu (Tron)" },
-    { "AV_Zurg",                    "Emperor Zurg (Toy Story)" },
-    { "AVG_DrStrange",              "Doctor Strange (Marvel)" },
-    { "AVG_CaptainMarvel",          "Captain Marvel (Marvel)" },
+    -- Alice Through the Looking Glass (1.06)
+    { "ALI_Alice",                  "Alice" },
+    { "ALI_MadHatter",              "The Mad Hatter" },
+    { "ALI_Time",                   "Time" },
 
-    -- Premium Figures
-    { "AVG_Hulk_Premium",           "Hulk (Premium)" },
-    { "AVG_HulkBuster_Premium",     "Hulkbuster (Premium)" },
-    { "FRO_Elsa_Premium",           "Elsa (Premium)" },
-    { "TCW_Yoda_Premium",           "Yoda (Premium)" },
-    { "AV_Buzz_Premium",            "Buzz Lightyear (Premium)" },
-    { "EMP_DarthVader_Premium",     "Darth Vader (Premium)" },
-    { "NBC_JackSkellington_Premium", "Jack Skellington (Premium)" },
-
-    -- Alternative Costumes
+    -- Unlocked Figures & Costumes
+    { "TBX_Baloo",                  "Baloo" },
     { "TBX_Mickey_KingdomHearts",   "King Mickey (Kingdom Hearts)" },
     { "TBX_JudyHopps_MeterMaid",    "Judy Hopps (Meter Maid)" },
 }
@@ -237,44 +186,7 @@ end
 -- Loads a world through the same path as the game's own level select.
 local function launchLevel(levelName, label)
     dbg("warp requested: " .. levelName .. " (" .. label .. "), current world: " .. tostring(Game.CurrentWorld()))
-    local G = (type(getfenv) == "function" and getfenv(0)) or _G
-    local upper = tostring(levelName or ""):upper()
-    if upper:sub(1, 4) == "DOR_" or upper:sub(1, 5) == "DORY_" then
-        local ok, result = pcall(function()
-            return swapCharacter("DOR_Dory", "Dory")
-        end)
-        dbg("Dory swap before the warp: " .. (ok and tostring(result) or ("failed: " .. tostring(result))))
-
-        -- Ensure Playsets metadata contains Dory so the engine resolves playsetDict = "DOR"
-        if type(G.Playsets) == "table" and not G.Playsets.Dory then
-            G.Playsets.Dory = {
-                playsetDict = "DOR",
-                playsetPrefix = "DOR",
-            }
-            G.Playsets.DOR = G.Playsets.Dory
-        end
-        if type(G.ZoneList) == "table" and type(G.ZoneList.Playsets) == "table" and not G.ZoneList.Playsets.Dory then
-            G.ZoneList.Playsets.Dory = {
-                playsetDict = "DOR",
-                playsetPrefix = "DOR",
-            }
-            G.ZoneList.Playsets.DOR = G.ZoneList.Playsets.Dory
-        end
-
-        -- Load supplemental dictionary for subtitles and in-game text
-        if type(rawget(G, "UI_LoadPlaysetDictionary")) == "function" then
-            local okDict, errDict = pcall(G.UI_LoadPlaysetDictionary, "Dory")
-            dbg("UI_LoadPlaysetDictionary('Dory'): " .. tostring(okDict) .. (errDict and (" " .. tostring(errDict)) or ""))
-        end
-    end
-    if (upper:sub(1, 4) == "DOR_" or upper:sub(1, 5) == "DORY_") and type(rawget(G, "UI_LaunchLevel")) == "function" then
-        dbg("UI_LaunchLevel(" .. levelName .. ", 'world', true, true, true, true)")
-        G.UI_LaunchLevel(levelName, "world", true, true, true, true)
-    else
-        dbg("Game.LoadLevel(" .. levelName .. ", true)")
-        Game.LoadLevel(levelName, true)
-    end
-    dbg("LoadLevel returned for " .. levelName)
+    Game.LoadLevel(levelName, true)
     return "Loading: " .. label .. "..."
 end
 
@@ -297,7 +209,6 @@ local SPAWNABLES = {
     { "moa_fishhook",              "Maui's fish hook (Moana)" },
     { "moa_lantern",               "Lantern (Moana)" },
     { "moa_maui",                  "Maui as a statue (no textures, no animations)" },
-    { "dor_enemyfish",             "Enemy fish (Finding Dory)" },
     { "sr_cart_vanellope",         "Vanellope's kart (Sugar Rush)" },
     { "sr_cart_vanellope_monster", "Vanellope's kart, monster version" },
     { "sr_cart_king",              "King Candy's kart (Sugar Rush)" },
@@ -344,8 +255,6 @@ Crabe.Menu.register({
         items = {
             { label = "Marvel Battlegrounds (1.05) >",
               submenu = { title = "MARVEL BATTLEGROUNDS", items = entries(MARVEL_BATTLEGROUNDS, launchLevel) } },
-            { label = "Finding Dory (1.06) >",
-              submenu = { title = "FINDING DORY", items = entries(FINDING_DORY, launchLevel) } },
             { label = "Moana (unreleased) >",
               submenu = { title = "MOANA", items = entries(MOANA, launchLevel) } },
             { label = "Cut content >",

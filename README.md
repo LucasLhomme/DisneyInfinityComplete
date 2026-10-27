@@ -53,7 +53,6 @@ Every character is registered directly into the in-game character grid through t
        └── disney_infinity_complete/
            ├── mod.json
            ├── disney_infinity_complete.lua
-           ├── dory_avatars_patch.lua
            └── characters/
    ```
 3. Launch the game through Steam! Press **F5** in-game to access the mod menu.
