@@ -2,19 +2,19 @@
 
 ![Disney Infinity Complete Heroes](preview.png)
 
-A lightweight, 100% stable content unlock mod for **Disney Infinity 3.0: Gold Edition (PC, Steam)**, powered by **CrabeLoader**.
+A lightweight, 100% stable character unlock mod for **Disney Infinity 3.0: Gold Edition (PC, Steam)**, powered by **CrabeLoader**.
 
-This mod surfaces all fully completed, official figures and costumes that already ship inside the PC Steam release archives but are hidden or locked on PC.
+This mod surfaces all 11 fully completed, official figures and costumes that already ship inside the PC Steam release archives but are hidden or locked on PC.
 
 > [!NOTE]
-> **No game files are modified on disk.** All unlocks and patches are applied cleanly in memory at runtime.
+> **No game files are modified on disk.** All unlocks are applied cleanly in memory at runtime.
 > Every character in this release features **100% complete official models, textures, animations, voice lines, combat combos, super moves, and progression skill trees**.
 
 ---
 
 ## 🌟 Playable Figures (11 Heroes)
 
-Every character is registered directly into the in-game character grid through the VirtualReader system and can be swapped instantly via the **F5** in-game menu.
+Every character is registered directly into the in-game character grid through the VirtualReader system and can be swapped instantly in real-time via the **F5** in-game menu.
 
 ### Marvel Battlegrounds (1.05)
 - **Black Panther** (`AVG_BlackPanther`) — Vibranium claws, acrobatic combos, supermove, full skill tree (`in3_avg_blackpanther`).
@@ -35,18 +35,11 @@ Every character is registered directly into the in-game character grid through t
 
 ---
 
-## ⚔️ Direct Warps (F5 Menu)
-
-- **Marvel Battlegrounds (1.05):** Instant access to the Avengers HQ campaign hub, combat tutorial, versus hub, and the seven official battle arenas:
-  - Asgard, Knowhere, Wakanda, Lunar Base, New York Sewers, Trainyard, and Ultron's Lair.
-- **Hero Quick-Swap:** Switch to any of the 11 unlocked figures in real time without returning to the main menu.
-
----
-
 ## 📦 Installation (Steam / Nexus Mods)
 
-1. Install [CrabeLoader](https://github.com/LucasLhomme/CrabeLoader) for *Disney Infinity 3.0: Gold Edition*.
-2. Copy the `disney_infinity_complete` folder into your game's `mods/` directory:
+1. Install [CrabeLoader](https://github.com/LucasLhomme/CrabeLoader) (v0.2.0 or higher) for *Disney Infinity 3.0: Gold Edition*.
+2. Extract the downloaded `DisneyInfinityComplete-v1.0.0.zip`.
+3. Copy the `disney_infinity_complete` folder into your game's `mods/` directory:
    ```
    Disney Infinity 3.0 Gold Edition/
    └── mods/
@@ -55,11 +48,11 @@ Every character is registered directly into the in-game character grid through t
            ├── disney_infinity_complete.lua
            └── characters/
    ```
-3. Launch the game through Steam! Press **F5** in-game to access the mod menu.
+4. Launch the game through Steam! Press **F5** in-game to open the menu and choose your hero.
 
 ---
 
 ## 🤝 Compatibility
 
 - **CrabeMenu:** Fully compatible. If you wish to play as any hero in any playset, that feature is directly available in CrabeMenu's *Player & Heroes* options.
-- **Save Games:** Safe to add or remove at any time without altering your progression or save files.
+- **Save Games:** 100% safe to add or remove at any time without altering your progression or save files.
