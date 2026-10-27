@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "minLoaderVersion": "0.2.0",
   "author": "Lucas Lhomme",
-  "description": "Unlock and instantly play as 11 official hidden/unreleased figures and exclusive costumes for Disney Infinity 3.0 PC Gold Edition.",
+  "description": "Unlock 11 official hidden/unreleased figures & costumes, and explore experimental DI 3.0 cut content and prototypes.",
   "entry": "disney_infinity_complete.lua",
   "loadAfter": ["local.crabemenu"]
 }

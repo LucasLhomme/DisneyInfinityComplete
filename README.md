@@ -2,13 +2,13 @@
 
 ![Disney Infinity Complete Heroes](preview.png)
 
-A lightweight, 100% stable character unlock mod for **Disney Infinity 3.0: Gold Edition (PC, Steam)**, powered by **CrabeLoader**.
+A lightweight content mod for **Disney Infinity 3.0: Gold Edition (PC, Steam)**, powered by **CrabeLoader**.
 
-This mod surfaces all 11 fully completed, official figures and costumes that already ship inside the PC Steam release archives but are hidden or locked on PC.
+This mod surfaces all 11 fully completed official figures and costumes that already ship inside the PC Steam release archives but are hidden or locked on PC, paired with an optional menu to explore abandoned **Disney Infinity 3.0 developer prototypes & cut content**.
 
 > [!NOTE]
-> **No game files are modified on disk.** All unlocks are applied cleanly in memory at runtime.
-> Every character in this release features **100% complete official models, textures, animations, voice lines, combat combos, super moves, and progression skill trees**.
+> **No game files are modified on disk.** All unlocks and hooks are applied cleanly in memory at runtime.
+> Every character features **100% complete official models, textures, animations, voice lines, combat combos, super moves, and progression skill trees**.
 
 ---
 
@@ -35,6 +35,18 @@ Every character is registered directly into the in-game character grid through t
 
 ---
 
+## 🧪 Experimental DI 3.0 Cut Content (F5 Menu)
+
+A dedicated section for modders and curious players to explore unreleased Disney Infinity 3.0 dev prototypes:
+- **Rogue One - Scarif (PlaysetZ):** Unreleased Scarif surface, interior, orbit, and jungle whitebox.
+- **Aladdin Prototypes:** Agrabah art palette and ribbon levels lit with the unused Agrabah sky dome.
+- **Star Wars Cut Challenges:** Clone Wars bonus challenge levels, Jedi Temple marketing scene, Death Star throne room, and Endor.
+- **Inside Out Platformer Prototypes:** Early 2D/3D cloud, lava, and side-scroller obstacle courses.
+- **Toy Box Prototypes & Speedway Hubs:** Unused vehicle hubs and logic proving grounds.
+- **Unreleased Spawnable Objects:** Spawn Rogue One's Puffer Pig (140 animations), spy drone, and Sugar Rush karts in front of the player.
+
+---
+
 ## 📦 Installation (Steam / Nexus Mods)
 
 1. Install [CrabeLoader](https://github.com/LucasLhomme/CrabeLoader) (v0.2.0 or higher) for *Disney Infinity 3.0: Gold Edition*.
@@ -48,7 +60,7 @@ Every character is registered directly into the in-game character grid through t
            ├── disney_infinity_complete.lua
            └── characters/
    ```
-4. Launch the game through Steam! Press **F5** in-game to open the menu and choose your hero.
+4. Launch the game through Steam! Press **F5** in-game to open the menu and choose your hero or explore prototypes.
 
 ---
 
