@@ -1,4 +1,5 @@
--- Disney Infinity Complete - ZoneList Patch for Cut Content & Prototypes
+-- Disney Infinity Complete - ZoneList Patch (LegacyPlaysets)
+-- Target buffer: presentation/zonelist.lua (221806 bytes)
 -- Registers unlisted worlds as Toy Box zones with player spawning enabled.
 
 local R = ZoneList and ZoneList.Records
@@ -24,13 +25,17 @@ for i = 1, #moana_zones do
         Z[zone] = {
             ReturnToHubString = "Scn_ReturnToyBox",
             _Inherits_ = "Inherit_RumpusRoom_Parent",
-            _ShowInMenu_ = false,
+            _ShowInMenu_ = true,
             availableInConsumerBuild = true,
             availableInShippingBuild = true,
             isPrebuiltToyBox = false,
             SplitScreenAllowed = true,
             ZonePath = path,
         }
+    else
+        Z[zone].ZonePath = path
+        Z[zone]._Inherits_ = "Inherit_RumpusRoom_Parent"
+        Z[zone].isPrebuiltToyBox = false
     end
 end
 
@@ -48,13 +53,17 @@ for i = 1, #scarif_zones do
         Z[zone] = {
             ReturnToHubString = "Scn_ReturnToyBox",
             _Inherits_ = "Inherit_RumpusRoom_Parent",
-            _ShowInMenu_ = false,
+            _ShowInMenu_ = true,
             availableInConsumerBuild = true,
             availableInShippingBuild = true,
             isPrebuiltToyBox = false,
             SplitScreenAllowed = true,
             ZonePath = path,
         }
+    else
+        Z[zone].ZonePath = path
+        Z[zone]._Inherits_ = "Inherit_RumpusRoom_Parent"
+        Z[zone].isPrebuiltToyBox = false
     end
 end
 
@@ -101,5 +110,9 @@ for i = 1, #prototypes do
             SplitScreenAllowed = true,
             ZonePath = "worlds/" .. archive .. "/" .. archive,
         }
+    else
+        Z[zone].ZonePath = "worlds/" .. archive .. "/" .. archive
+        Z[zone]._Inherits_ = "Inherit_RumpusRoom_Parent"
+        Z[zone].isPrebuiltToyBox = false
     end
 end
