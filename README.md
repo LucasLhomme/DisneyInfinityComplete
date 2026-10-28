@@ -6,6 +6,9 @@ A lightweight content mod for **Disney Infinity 3.0: Gold Edition (PC, Steam)**,
 
 This mod surfaces all 11 fully completed official figures and costumes that already ship inside the PC Steam release archives but are hidden or locked on PC, paired with an optional menu to explore abandoned **Disney Infinity 3.0 developer prototypes & cut content**.
 
+[![Nexus Mods](https://img.shields.io/badge/Nexus_Mods-Page_121-orange?style=flat&logo=nexusmods)](https://www.nexusmods.com/disneyInfinity3goldedition/mods/121)
+[![GitHub Release](https://img.shields.io/badge/GitHub-v1.0.0-blue?style=flat&logo=github)](https://github.com/LucasLhomme/DisneyInfinityComplete/releases/tag/v1.0.0)
+
 > [!NOTE]
 > **No game files are modified on disk.** All unlocks and hooks are applied cleanly in memory at runtime.
 > Every character features **100% complete official models, textures, animations, voice lines, combat combos, super moves, and progression skill trees**.
@@ -35,12 +38,13 @@ Every character is registered directly into the in-game character grid through t
 
 ---
 
-## 🧪 Experimental DI 3.0 Cut Content (F5 Menu)
+## 🧪 35+ Experimental DI 3.0 Cut Content Worlds (Playable on Foot)
 
-A dedicated section for modders and curious players to explore unreleased Disney Infinity 3.0 dev prototypes:
-- **Rogue One - Scarif (PlaysetZ):** Unreleased Scarif surface, interior, orbit, and jungle whitebox.
+A dedicated section for modders and curious players to explore unreleased Disney Infinity 3.0 dev prototypes on foot:
+- **Moana (DI 3.5 / 4.0 cancelled worlds):** Beautiful Corner Cove (on foot), Test Room, Proto Dungeon & Caves, Motunui, Ocean, Te Fiti, and Polatu.
+- **Rogue One - Scarif (PlaysetZ):** Unreleased Scarif beach & surface (on foot), interior base, orbit, and jungle whitebox.
 - **Aladdin Prototypes:** Agrabah art palette and ribbon levels lit with the unused Agrabah sky dome.
-- **Star Wars Cut Challenges:** Clone Wars bonus challenge levels, Jedi Temple marketing scene, Death Star throne room, and Endor.
+- **Star Wars Cut Challenges:** Clone Wars bonus challenge levels, Jedi Temple marketing scene, Death Star throne room v14/v15, and Hoth render.
 - **Inside Out Platformer Prototypes:** Early 2D/3D cloud, lava, and side-scroller obstacle courses.
 - **Toy Box Prototypes & Speedway Hubs:** Unused vehicle hubs and logic proving grounds.
 - **Unreleased Spawnable Objects:** Spawn Rogue One's Puffer Pig (140 animations), spy drone, and Sugar Rush karts in front of the player.
@@ -49,22 +53,24 @@ A dedicated section for modders and curious players to explore unreleased Disney
 
 ## 📦 Installation (Steam / Nexus Mods)
 
-1. Install [CrabeLoader](https://github.com/LucasLhomme/CrabeLoader) (v0.2.0 or higher) for *Disney Infinity 3.0: Gold Edition*.
-2. Extract the downloaded `DisneyInfinityComplete-v1.0.0.zip`.
-3. Copy the `disney_infinity_complete` folder into your game's `mods/` directory:
+1. Download the mod from [Nexus Mods](https://www.nexusmods.com/disneyInfinity3goldedition/mods/121) or [GitHub Releases](https://github.com/LucasLhomme/DisneyInfinityComplete/releases/tag/v1.0.0).
+2. Install [CrabeLoader](https://github.com/LucasLhomme/CrabeLoader) (v0.2.0 or higher) and [CrabeMenu](https://github.com/LucasLhomme/CrabeMenu).
+3. Extract `DisneyInfinityComplete-v1.0.0.zip` and place the `complete` folder into your game's `mods/` directory:
    ```
    Disney Infinity 3.0 Gold Edition/
    └── mods/
-       └── disney_infinity_complete/
+       └── complete/
            ├── mod.json
            ├── disney_infinity_complete.lua
-           └── characters/
+           ├── characters/
+           └── skilltrees/
    ```
-4. Launch the game through Steam! Press **F5** in-game to open the menu and choose your hero or explore prototypes.
+4. Launch the game normally through Steam! Press **F5** in-game to open the menu, pick your hero, or explore the cut content.
 
 ---
 
-## 🤝 Compatibility
+## 🤝 Compatibility & Safety
 
-- **CrabeMenu:** Fully compatible. If you wish to play as any hero in any playset, that feature is directly available in CrabeMenu's *Player & Heroes* options.
-- **Save Games:** 100% safe to add or remove at any time without altering your progression or save files.
+- **100% Safe:** No vanilla files are modified on disk. Safe to add or remove at any time.
+- **CrabeMenu:** Fully integrated into the F5 menu with real-time character swapping.
+- **Save Games:** Safe for existing save games and progression.
