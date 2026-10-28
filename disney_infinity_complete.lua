@@ -24,6 +24,8 @@ local HEROES = {
     { "TBX_JudyHopps_MeterMaid",    "Judy Hopps (Meter Maid)" },
 }
 
+local lastChosenHeroSku = nil
+
 -- Resolves the sku_id from the character name through the VirtualReader catalog.
 local function swapCharacter(name, label)
     local row = Crabe.VirtualReader.findCharacter(name)
@@ -31,6 +33,7 @@ local function swapCharacter(name, label)
     if not sku then
         return "No sku_id found for " .. name
     end
+    lastChosenHeroSku = sku
     Game.SetCharacter(sku, "loadout")
     return "Now playing: " .. label
 end
@@ -39,9 +42,12 @@ end
 -- 2. EXPERIMENTAL CUT CONTENT & PROTOTYPES (DI 3.0 & Cancelled)
 -- ============================================================================
 
--- Loads a world safely through UI_LaunchLevel if present (for proper Toy Box player spawning)
+-- Loads a world safely through UI_LaunchLevel if present (for proper player spawning)
 local function launchLevel(levelName, label)
     Crabe.write("[DI Complete] Warp requested: " .. tostring(levelName) .. " (" .. tostring(label) .. ")")
+    if lastChosenHeroSku and Game and Game.SetCharacter then
+        Game.SetCharacter(lastChosenHeroSku, "loadout")
+    end
     local G = (type(getfenv) == "function" and getfenv(0)) or _G
     if type(rawget(G, "UI_LaunchLevel")) == "function" then
         G.UI_LaunchLevel(levelName, "world", true, true, true, true)
@@ -55,6 +61,7 @@ end
 local MOANA = {
     { "Moana_Corner_Cove",         "Beautiful Corner Cove (on foot)" },
     { "moa_test_stuff_tb",         "Test Room (on foot)" },
+    { "MOA_Proto_Dungeon",         "Proto Dungeon / Cave (on foot)" },
     { "MOA_Motunui",               "Motunui" },
     { "MOA_Ocean",                 "Ocean" },
     { "MOA_Polatu",                "Polatu" },
@@ -66,8 +73,8 @@ local MOANA = {
 
 -- Rogue One - Scarif (Unreleased PlaysetZ for DI 3.0 - On foot)
 local ROGUE_ONE = {
-    { "Rouge_One_Scarif",          "Scarif - Beach & Surface (on foot)" },
-    { "Rouge_One_Interior",        "Scarif - Base Interior (on foot)" },
+    { "PSZ_Barbados_TERRAIN",      "Scarif - Beach & Surface (on foot)" },
+    { "PSZ_Barbados_INTERIOR",     "Scarif - Base Interior (on foot)" },
     { "psz_bar_jungle_01",         "Jungle Prototype (on foot)" },
     { "PSZ_Barbados_SPACE",        "Scarif - Orbit" },
 }
