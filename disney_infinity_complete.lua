@@ -1,5 +1,5 @@
 -- Disney Infinity Complete v1.0.0
--- 11 Unlocked Figures & Costumes + Experimental DI 3.0 Cut Content & Prototypes.
+-- 11 Unlocked Figures & Costumes + Safe DI 3.0 & Unreleased Cut Content.
 -- Clean in-memory injection via CrabeLoader.
 
 -- ============================================================================
@@ -36,7 +36,7 @@ local function swapCharacter(name, label)
 end
 
 -- ============================================================================
--- 2. EXPERIMENTAL CUT CONTENT & PROTOTYPES (DI 3.0 abandoned assets)
+-- 2. EXPERIMENTAL CUT CONTENT & PROTOTYPES (DI 3.0 & Cancelled)
 -- ============================================================================
 
 -- Loads a world safely
@@ -45,14 +45,25 @@ local function launchLevel(levelName, label)
     return "Loading: " .. label .. "..."
 end
 
--- Rogue One - Scarif (Unreleased PlaysetZ for DI 3.0)
+-- Moana (Unreleased DI3.5/DI4 Worlds)
+local MOANA = {
+    { "Moana_Corner_Cove",         "Beautiful Corner Cove (on foot)" },
+    { "moa_test_stuff_tb",         "Test Room (on foot)" },
+    { "MOA_Motunui",               "Motunui" },
+    { "MOA_Ocean",                 "Ocean" },
+    { "MOA_Polatu",                "Polatu" },
+    { "MOA_Tefiti",                "Te Fiti" },
+    { "MOA_Motonui_Dungeon",       "Motunui Dungeon" },
+    { "MOA_Polatu_Dungeon",        "Polatu Dungeon" },
+    { "MOA_Tefiti_Dungeon",        "Te Fiti Dungeon" },
+}
+
+-- Rogue One - Scarif (Unreleased PlaysetZ for DI 3.0 - On foot)
 local ROGUE_ONE = {
-    { "PSZ_Barbados_TERRAIN",       "Scarif - surface" },
-    { "PSZ_Barbados_INTERIOR",      "Scarif - interior" },
-    { "PSZ_Barbados_SPACE",         "Scarif - orbit" },
-    { "psz_bar_jungle_01",          "Jungle prototype" },
-    { "Rouge_One_Scarif",           "Scarif surface - on foot (Toy Box)" },
-    { "Rouge_One_Interior",         "Scarif interior - on foot (Toy Box)" },
+    { "Rouge_One_Scarif",          "Scarif - Beach & Surface (on foot)" },
+    { "Rouge_One_Interior",        "Scarif - Base Interior (on foot)" },
+    { "psz_bar_jungle_01",         "Jungle Prototype (on foot)" },
+    { "PSZ_Barbados_SPACE",        "Scarif - Orbit" },
 }
 
 -- Aladdin cancelled prototype levels
@@ -196,7 +207,9 @@ Crabe.Menu.register({
               submenu = {
                   title = "EXPERIMENTAL CUT CONTENT",
                   items = {
-                      { label = "Rogue One - Scarif (PlaysetZ) >",
+                      { label = "Moana prototypes >",
+                        submenu = { title = "MOANA PROTOTYPES", items = entries(MOANA, launchLevel) } },
+                      { label = "Rogue One - Scarif (on foot) >",
                         submenu = { title = "ROGUE ONE - SCARIF", items = entries(ROGUE_ONE, launchLevel) } },
                       { label = "Aladdin prototypes (Agrabah) >",
                         submenu = { title = "ALADDIN PROTOTYPES", items = entries(ALADDIN, launchAladdin) } },
@@ -224,5 +237,5 @@ if Crabe.Menu.registerInCategory then
 end
 
 Crabe.Events.on("init", function()
-    Crabe.write("[DI Complete] Disney Infinity Complete v1.0.0 active (11 heroes + cut content).")
+    Crabe.write("[DI Complete] Disney Infinity Complete active (11 heroes + cut content + toybox player spawning).")
 end)

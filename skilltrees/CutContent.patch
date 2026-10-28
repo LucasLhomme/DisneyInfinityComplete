@@ -1,0 +1,120 @@
+-- Disney Infinity Complete - ZoneList Patch for Cut Content & Prototypes
+-- Registers unlisted worlds as Toy Box zones with player spawning enabled.
+
+local R = ZoneList and ZoneList.Records
+local Z = R and R.Zones
+if not (R and Z and R.InheritList) then return end
+
+-- 1. Moana Prototypes (Beautiful Corner Cove, Test Stuff, Motunui)
+local moana_zones = {
+    { "Moana_Corner_Cove",         "worlds/MOA_Beautiful_Corner_Cove/MOA_Beautiful_Corner_Cove" },
+    { "moa_test_stuff_tb",         "worlds/moa_test_stuff/moa_test_stuff" },
+    { "MOA_Motunui",               "worlds/MOA_Motunui/MOA_Motunui" },
+    { "MOA_Polatu",                "worlds/MOA_Polatu/MOA_Polatu" },
+    { "MOA_Tefiti",                "worlds/MOA_Tefiti/MOA_Tefiti" },
+    { "MOA_Ocean",                 "worlds/MOA_Ocean/MOA_Ocean" },
+    { "MOA_Motonui_Dungeon",       "worlds/MOA_Motonui_Dungeon/MOA_Motonui_Dungeon" },
+    { "MOA_Polatu_Dungeon",        "worlds/MOA_Polatu_Dungeon/MOA_Polatu_Dungeon" },
+    { "MOA_Tefiti_Dungeon",        "worlds/MOA_Tefiti_Dungeon/MOA_Tefiti_Dungeon" },
+}
+
+for i = 1, #moana_zones do
+    local zone, path = moana_zones[i][1], moana_zones[i][2]
+    if not Z[zone] then
+        Z[zone] = {
+            ReturnToHubString = "Scn_ReturnToyBox",
+            _Inherits_ = "Inherit_RumpusRoom_Parent",
+            _ShowInMenu_ = false,
+            availableInConsumerBuild = true,
+            availableInShippingBuild = true,
+            isPrebuiltToyBox = false,
+            SplitScreenAllowed = true,
+            ZonePath = path,
+        }
+    end
+end
+
+-- 2. Rogue One - Scarif (PlaysetZ)
+local scarif_zones = {
+    { "Rouge_One_Scarif",          "worlds/psz_barbados_terrain/psz_barbados_terrain" },
+    { "Rouge_One_Interior",        "worlds/psz_barbados_interior/psz_barbados_interior" },
+    { "psz_bar_jungle_01",         "worlds/psz_bar_jungle_01/psz_bar_jungle_01" },
+    { "PSZ_Barbados_SPACE",        "worlds/psz_barbados_space/psz_barbados_space" },
+}
+
+for i = 1, #scarif_zones do
+    local zone, path = scarif_zones[i][1], scarif_zones[i][2]
+    if not Z[zone] then
+        Z[zone] = {
+            ReturnToHubString = "Scn_ReturnToyBox",
+            _Inherits_ = "Inherit_RumpusRoom_Parent",
+            _ShowInMenu_ = false,
+            availableInConsumerBuild = true,
+            availableInShippingBuild = true,
+            isPrebuiltToyBox = false,
+            SplitScreenAllowed = true,
+            ZonePath = path,
+        }
+    end
+end
+
+-- 3. Developer Test Rooms & Prototypes
+local prototypes = {
+    { "aladdin_palette",               "aladdin_palette" },
+    { "aladdin_ribbon_whitebox",       "aladdin_ribbon_whitebox" },
+    { "aladdin_ribbon_whitebox_2_4_2", "aladdin_ribbon_whitebox_2_4_2" },
+    { "aladdinribbonedit",             "aladdinribbonedit" },
+    { "sugarrushtest",                 "sugarrushtest" },
+    { "tcw_challengemoons",            "tcw_challengemoons" },
+    { "tcw_cor_jeditemplemarketing",    "tcw_cor_jeditemplemarketing" },
+    { "geonosis_geometry_wip",          "geonosis_geometry_wip" },
+    { "deathstar_throneroom14_1",       "deathstar_throneroom14_1" },
+    { "deathstar_throneroom15",         "deathstar_throneroom15" },
+    { "emp_hoth_render",               "emp_hoth_render" },
+    { "tat_assets",                    "tat_assets" },
+    { "proto_artset_tatooine",          "proto_artset_tatooine" },
+    { "reb_moonsystemtestbed_01",       "reb_moonsystemtestbed_01" },
+    { "out_cloudintro",                "out_cloudintro" },
+    { "out_clouds",                    "out_clouds" },
+    { "out_clouds2",                   "out_clouds2" },
+    { "out_lava_side2",                "out_lava_side2" },
+    { "out_lava_side4",                "out_lava_side4" },
+    { "out_lvl2_section1",             "out_lvl2_section1" },
+    { "out_lvl5_section1",             "out_lvl5_section1" },
+    { "out_mark_sidescroll_v002",       "out_mark_sidescroll_v002" },
+    { "out_mark_sidescroll_v003",       "out_mark_sidescroll_v003" },
+    { "onehundred_geo",                "onehundred_geo" },
+    { "hubf",                          "hubf" },
+    { "hubd",                          "hubd" },
+    { "lab",                           "lab" },
+    { "sidescrolling2",                "sidescrolling2" },
+    { "tbx_toy_proving",               "tbx_toy_proving" },
+    { "holovlad",                      "holovlad" },
+    { "emp_tatt_01_scaletest",          "emp_tatt_01_scaletest" },
+    { "wounddamagetest_01",            "wounddamagetest_01" },
+    { "interiorlight_test",            "interiorlight_test" },
+    { "tat_building_comparison",       "tat_building_comparison" },
+    { "holocombat_nt",                 "holocombat_nt" },
+    { "holocombat",                    "holocombat" },
+    { "holosidekicks",                 "holosidekicks" },
+    { "holomission2",                  "holomission2" },
+    { "tbx_building_logic1_bigger",    "tbx_building_logic1_bigger" },
+    { "yaviniv_brick_corner",          "yaviniv_brick_corner" },
+    { "tat_outscource_assetpack",      "tat_outscource_assetpack" },
+}
+
+for i = 1, #prototypes do
+    local zone, archive = prototypes[i][1], prototypes[i][2]
+    if not Z[zone] then
+        Z[zone] = {
+            ReturnToHubString = "Scn_ReturnToyBox",
+            _Inherits_ = "Inherit_RumpusRoom_Parent",
+            _ShowInMenu_ = false,
+            availableInConsumerBuild = true,
+            availableInShippingBuild = true,
+            isPrebuiltToyBox = false,
+            SplitScreenAllowed = true,
+            ZonePath = "worlds/" .. archive .. "/" .. archive,
+        }
+    end
+end
