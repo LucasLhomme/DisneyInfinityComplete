@@ -7,15 +7,15 @@ if not (R and Z and R.InheritList) then return end
 
 -- 1. Moana Prototypes (Beautiful Corner Cove, Test Stuff, Motunui)
 local moana_zones = {
-    { "Moana_Corner_Cove",         "worlds/MOA_Beautiful_Corner_Cove/MOA_Beautiful_Corner_Cove" },
+    { "Moana_Corner_Cove",         "worlds/moa_beautiful_corner_cove/moa_beautiful_corner_cove" },
     { "moa_test_stuff_tb",         "worlds/moa_test_stuff/moa_test_stuff" },
-    { "MOA_Motunui",               "worlds/MOA_Motunui/MOA_Motunui" },
-    { "MOA_Polatu",                "worlds/MOA_Polatu/MOA_Polatu" },
-    { "MOA_Tefiti",                "worlds/MOA_Tefiti/MOA_Tefiti" },
-    { "MOA_Ocean",                 "worlds/MOA_Ocean/MOA_Ocean" },
-    { "MOA_Motonui_Dungeon",       "worlds/MOA_Motonui_Dungeon/MOA_Motonui_Dungeon" },
-    { "MOA_Polatu_Dungeon",        "worlds/MOA_Polatu_Dungeon/MOA_Polatu_Dungeon" },
-    { "MOA_Tefiti_Dungeon",        "worlds/MOA_Tefiti_Dungeon/MOA_Tefiti_Dungeon" },
+    { "MOA_Motunui",               "worlds/moa_motunui/moa_motunui" },
+    { "MOA_Ocean",                 "worlds/moa_ocean/moa_ocean" },
+    { "MOA_Polatu",                "worlds/moa_polatu/moa_polatu" },
+    { "MOA_Tefiti",                "worlds/moa_tefiti/moa_tefiti" },
+    { "MOA_Motonui_Dungeon",       "worlds/moa_motonui_dungeon/moa_motonui_dungeon" },
+    { "MOA_Polatu_Dungeon",        "worlds/moa_polatu_dungeon/moa_polatu_dungeon" },
+    { "MOA_Tefiti_Dungeon",        "worlds/moa_tefiti_dungeon/moa_tefiti_dungeon" },
 }
 
 for i = 1, #moana_zones do
@@ -60,12 +60,14 @@ end
 
 -- 3. Developer Test Rooms & Prototypes
 local prototypes = {
-    { "aladdin_palette",               "aladdin_palette" },
+    { "aladdin_palette",               "aladdin palette" },
     { "aladdin_ribbon_whitebox",       "aladdin_ribbon_whitebox" },
     { "aladdin_ribbon_whitebox_2_4_2", "aladdin_ribbon_whitebox_2_4_2" },
     { "aladdinribbonedit",             "aladdinribbonedit" },
     { "sugarrushtest",                 "sugarrushtest" },
     { "tcw_challengemoons",            "tcw_challengemoons" },
+    { "tcw_chal01_deathstar",          "tcw_chal01_deathstar" },
+    { "tcw_chal03_icefire",            "tcw_chal03_icefire" },
     { "tcw_cor_jeditemplemarketing",    "tcw_cor_jeditemplemarketing" },
     { "geonosis_geometry_wip",          "geonosis_geometry_wip" },
     { "deathstar_throneroom14_1",       "deathstar_throneroom14_1" },
@@ -78,29 +80,12 @@ local prototypes = {
     { "out_clouds",                    "out_clouds" },
     { "out_clouds2",                   "out_clouds2" },
     { "out_lava_side2",                "out_lava_side2" },
-    { "out_lava_side4",                "out_lava_side4" },
-    { "out_lvl2_section1",             "out_lvl2_section1" },
-    { "out_lvl5_section1",             "out_lvl5_section1" },
     { "out_mark_sidescroll_v002",       "out_mark_sidescroll_v002" },
-    { "out_mark_sidescroll_v003",       "out_mark_sidescroll_v003" },
-    { "onehundred_geo",                "onehundred_geo" },
     { "hubf",                          "hubf" },
     { "hubd",                          "hubd" },
-    { "lab",                           "lab" },
-    { "sidescrolling2",                "sidescrolling2" },
-    { "tbx_toy_proving",               "tbx_toy_proving" },
     { "holovlad",                      "holovlad" },
-    { "emp_tatt_01_scaletest",          "emp_tatt_01_scaletest" },
-    { "wounddamagetest_01",            "wounddamagetest_01" },
-    { "interiorlight_test",            "interiorlight_test" },
-    { "tat_building_comparison",       "tat_building_comparison" },
-    { "holocombat_nt",                 "holocombat_nt" },
     { "holocombat",                    "holocombat" },
     { "holosidekicks",                 "holosidekicks" },
-    { "holomission2",                  "holomission2" },
-    { "tbx_building_logic1_bigger",    "tbx_building_logic1_bigger" },
-    { "yaviniv_brick_corner",          "yaviniv_brick_corner" },
-    { "tat_outscource_assetpack",      "tat_outscource_assetpack" },
 }
 
 for i = 1, #prototypes do
