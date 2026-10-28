@@ -1,6 +1,7 @@
 -- Disney Infinity Complete - ZoneList Patch (LegacyPlaysets)
 -- Target buffer: presentation/zonelist.lua (221806 bytes)
--- Configures cut content, Moana, Scarif and developer prototype worlds with valid 3.0 player spawning.
+-- Registers all cut content, Moana, Scarif and developer prototype worlds as Prebuilt Toy Box zones
+-- with valid 3.0 player spawning (TCW_Anakin / chosen hero).
 
 local R = ZoneList and ZoneList.Records
 local Z = R and R.Zones
@@ -31,64 +32,36 @@ if IRP then
 end
 
 -- ============================================================================
--- 2. MOANA PLAYSET & ZONES
+-- 2. MOANA WORLDS (ON FOOT TOY BOX)
 -- ============================================================================
-if R.PlaysetProperties and R.PlaysetProperties.Moana then
-    R.PlaysetProperties.Moana.DefaultAvatar = "MOA_Moana_PS"
-    R.PlaysetProperties.Moana.DefaultAvatar2 = "MOA_Maui_PS"
-    R.PlaysetProperties.Moana.FallbackAvatar = "MOA_Moana_PS"
-    R.PlaysetProperties.Moana.InitPlayersAtClosestCheckpoint = nil
-    R.PlaysetProperties.Moana.JoiningPlayersStartAtClosestCheckpoint = nil
-    R.PlaysetProperties.Moana.ToyWipe_ForceEnable = false
-    R.PlaysetProperties.Moana.ToyWipe_Mode = "None"
-end
-
-if R.InheritList and R.InheritList.Inherit_Moana_Parent then
-    R.InheritList.Inherit_Moana_Parent.DefaultAvatar = "MOA_Moana_PS"
-    R.InheritList.Inherit_Moana_Parent.FallbackAvatar = "MOA_Moana_PS"
-    R.InheritList.Inherit_Moana_Parent.MasterZone = "MOA_Master"
-    R.InheritList.Inherit_Moana_Parent.PlaysetProperties = "Moana"
-    R.InheritList.Inherit_Moana_Parent.EnvironmentType = "Terrain"
-end
-
--- Ensure all official vanilla Moana zones maintain valid inheritance and avatars
-local official_moana = {
-    "MOA_Motunui", "MOA_Ocean", "MOA_Polatu", "MOA_Tefiti",
-    "MOA_Motonui_Dungeon", "MOA_Polatu_Dungeon", "MOA_Tefiti_Dungeon",
-}
-for i = 1, #official_moana do
-    local mz = official_moana[i]
-    if Z[mz] then
-        Z[mz]._Inherits_ = "Inherit_Moana_Parent"
-        Z[mz].MasterZone = "MOA_Master"
-        Z[mz].PlaysetProperties = "Moana"
-        Z[mz].DefaultAvatar = "MOA_Moana_PS"
-        Z[mz].FallbackAvatar = "MOA_Moana_PS"
-        Z[mz].availableInConsumerBuild = true
-        Z[mz].availableInShippingBuild = true
-    end
-end
-
--- Moana Prototype & Unlisted Zones
-local moana_prototypes = {
+local moana_zones = {
     { "Moana_Corner_Cove",         "worlds/moa_beautiful_corner_cove/moa_beautiful_corner_cove" },
     { "moa_test_stuff_tb",         "worlds/moa_test_stuff/moa_test_stuff" },
     { "MOA_Proto_Dungeon",         "worlds/moa_proto_dungeon/moa_proto_dungeon" },
+    { "MOA_Motunui",               "worlds/moa_motunui/moa_motunui" },
+    { "MOA_Ocean",                 "worlds/moa_ocean/moa_ocean" },
+    { "MOA_Polatu",                "worlds/moa_polatu/moa_polatu" },
+    { "MOA_Tefiti",                "worlds/moa_tefiti/moa_tefiti" },
+    { "MOA_Motonui_Dungeon",       "worlds/moa_motonui_dungeon/moa_motonui_dungeon" },
+    { "MOA_Polatu_Dungeon",        "worlds/moa_polatu_dungeon/moa_polatu_dungeon" },
+    { "MOA_Tefiti_Dungeon",        "worlds/moa_tefiti_dungeon/moa_tefiti_dungeon" },
 }
 
-for i = 1, #moana_prototypes do
-    local zone, path = moana_prototypes[i][1], moana_prototypes[i][2]
+for i = 1, #moana_zones do
+    local zone, path = moana_zones[i][1], moana_zones[i][2]
     Z[zone] = {
-        EnvironmentType = "Terrain",
-        MasterZone = "MOA_Master",
-        PlaysetProperties = "Moana",
-        _Inherits_ = "Inherit_Moana_Parent",
-        _ShowInMenu_ = true,
+        ReturnToHubString = "Scn_ReturnToyBox",
+        _Inherits_ = "Inherit_RumpusRoom_Parent",
+        PlaysetProperties = "ToyBox",
+        _ShowInMenu_ = false,
         availableInConsumerBuild = true,
         availableInShippingBuild = true,
-        DefaultAvatar = "MOA_Moana_PS",
-        FallbackAvatar = "MOA_Moana_PS",
+        isPrebuiltToyBox = true,
         SplitScreenAllowed = true,
+        DefaultAvatar = "TCW_Anakin",
+        FallbackAvatar = "TCW_Anakin",
+        InitPlayersAtClosestCheckpoint = false,
+        JoiningPlayersStartAtClosestCheckpoint = false,
         ZonePath = path,
     }
 end
@@ -98,56 +71,35 @@ Z.MOA_Beautiful_Corner_Cove = Z.Moana_Corner_Cove
 Z.MOA_Test_Stuff = Z.moa_test_stuff_tb
 
 -- ============================================================================
--- 3. ROGUE ONE - SCARIF (PLAYSETZ)
+-- 3. ROGUE ONE - SCARIF (ON FOOT TOY BOX)
 -- ============================================================================
-if R.PlaysetProperties and R.PlaysetProperties.PlaysetZ then
-    R.PlaysetProperties.PlaysetZ.DefaultAvatar = "PSZ_Cole"
-    R.PlaysetProperties.PlaysetZ.DefaultAvatar2 = "EMP_Leia"
-    R.PlaysetProperties.PlaysetZ.FallbackAvatar = "PSZ_Cole"
-    R.PlaysetProperties.PlaysetZ.InitPlayersAtClosestCheckpoint = nil
-    R.PlaysetProperties.PlaysetZ.JoiningPlayersStartAtClosestCheckpoint = nil
-    R.PlaysetProperties.PlaysetZ.ToyWipe_ForceEnable = false
-    R.PlaysetProperties.PlaysetZ.ToyWipe_Mode = "None"
-end
-
-if R.InheritList and R.InheritList.Inherit_PSZ_Barbados_Parent then
-    R.InheritList.Inherit_PSZ_Barbados_Parent.DefaultAvatar = "PSZ_Cole"
-    R.InheritList.Inherit_PSZ_Barbados_Parent.FallbackAvatar = "PSZ_Cole"
-    R.InheritList.Inherit_PSZ_Barbados_Parent.MasterZone = "PSZ_Master"
-    R.InheritList.Inherit_PSZ_Barbados_Parent.PlaysetProperties = "PlaysetZ"
-end
-
--- Ensure official Scarif zones have proper attributes
-local official_scarif = { "PSZ_Barbados_TERRAIN", "PSZ_Barbados_INTERIOR", "PSZ_Barbados_SPACE" }
-for i = 1, #official_scarif do
-    local sz = official_scarif[i]
-    if Z[sz] then
-        Z[sz]._Inherits_ = "Inherit_PSZ_Barbados_Parent"
-        Z[sz].MasterZone = "PSZ_Master"
-        Z[sz].PlaysetProperties = "PlaysetZ"
-        Z[sz].DefaultAvatar = "PSZ_Cole"
-        Z[sz].FallbackAvatar = "PSZ_Cole"
-        Z[sz].availableInConsumerBuild = true
-        Z[sz].availableInShippingBuild = true
-    end
-end
-
--- Jungle Prototype
-Z.psz_bar_jungle_01 = {
-    EnvironmentType = "Terrain",
-    MasterZone = "PSZ_Master",
-    PlaysetProperties = "PlaysetZ",
-    _Inherits_ = "Inherit_PSZ_Barbados_Parent",
-    _ShowInMenu_ = true,
-    availableInConsumerBuild = true,
-    availableInShippingBuild = true,
-    DefaultAvatar = "PSZ_Cole",
-    FallbackAvatar = "PSZ_Cole",
-    SplitScreenAllowed = true,
-    ZonePath = "worlds/psz_bar_jungle_01/psz_bar_jungle_01",
+local scarif_zones = {
+    { "PSZ_Barbados_TERRAIN",      "worlds/psz_barbados_terrain/psz_barbados_terrain" },
+    { "PSZ_Barbados_INTERIOR",     "worlds/psz_barbados_interior/psz_barbados_interior" },
+    { "psz_bar_jungle_01",         "worlds/psz_bar_jungle_01/psz_bar_jungle_01" },
+    { "PSZ_Barbados_SPACE",        "worlds/psz_barbados_space/psz_barbados_space" },
 }
 
--- Aliases for menu warps
+for i = 1, #scarif_zones do
+    local zone, path = scarif_zones[i][1], scarif_zones[i][2]
+    Z[zone] = {
+        ReturnToHubString = "Scn_ReturnToyBox",
+        _Inherits_ = "Inherit_RumpusRoom_Parent",
+        PlaysetProperties = "ToyBox",
+        _ShowInMenu_ = false,
+        availableInConsumerBuild = true,
+        availableInShippingBuild = true,
+        isPrebuiltToyBox = true,
+        SplitScreenAllowed = true,
+        DefaultAvatar = "TCW_Anakin",
+        FallbackAvatar = "TCW_Anakin",
+        InitPlayersAtClosestCheckpoint = false,
+        JoiningPlayersStartAtClosestCheckpoint = false,
+        ZonePath = path,
+    }
+end
+
+-- Aliases for Scarif
 Z.Rouge_One_Scarif = Z.PSZ_Barbados_TERRAIN
 Z.Rouge_One_Interior = Z.PSZ_Barbados_INTERIOR
 
@@ -155,36 +107,35 @@ Z.Rouge_One_Interior = Z.PSZ_Barbados_INTERIOR
 -- 4. STAR WARS CUT CHALLENGES & PROTOTYPES
 -- ============================================================================
 local starwars_cut = {
-    { "tcw_challengemoons",            "tcw_challengemoons",            "Inherit_TCW_Coruscant_Parent", "TCW_Master", "TheCloneWars", "TCW_Anakin" },
-    { "tcw_chal01_deathstar",          "tcw_chal01_deathstar",          "Inherit_TCW_Coruscant_Parent", "TCW_Master", "TheCloneWars", "TCW_Anakin" },
-    { "tcw_chal03_icefire",            "tcw_chal03_icefire",            "Inherit_TCW_Coruscant_Parent", "TCW_Master", "TheCloneWars", "TCW_Anakin" },
-    { "tcw_cor_jeditemplemarketing",    "tcw_cor_jeditemplemarketing",    "Inherit_TCW_Coruscant_Parent", "TCW_Master", "TheCloneWars", "TCW_Anakin" },
-    { "geonosis_geometry_wip",          "geonosis_geometry_wip",          "Inherit_TCW_Coruscant_Parent", "TCW_Master", "TheCloneWars", "TCW_Anakin" },
-    { "deathstar_throneroom14_1",       "deathstar_throneroom14_1",       "Inherit_EMP_DeathStar1_Parent", "EMP_Master", "Empire",       "EMP_Luke" },
-    { "deathstar_throneroom15",         "deathstar_throneroom15",         "Inherit_EMP_DeathStar1_Parent", "EMP_Master", "Empire",       "EMP_Luke" },
-    { "emp_hoth_render",               "emp_hoth_render",               "Inherit_EMP_Hoth_Parent",       "EMP_Master", "Empire",       "EMP_Luke" },
-    { "tat_assets",                    "tat_assets",                    "Inherit_EMP_Tatooine_Parent",   "EMP_Master", "Empire",       "EMP_Luke" },
-    { "proto_artset_tatooine",          "proto_artset_tatooine",          "Inherit_EMP_Tatooine_Parent",   "EMP_Master", "Empire",       "EMP_Luke" },
-    { "emp_tatt_01_scaletest",          "emp_tatt_01_scaletest",          "Inherit_EMP_Tatooine_Parent",   "EMP_Master", "Empire",       "EMP_Luke" },
-    { "tat_building_comparison",       "tat_building_comparison",       "Inherit_EMP_Tatooine_Parent",   "EMP_Master", "Empire",       "EMP_Luke" },
-    { "tat_outscource_assetpack",      "tat_outscource_assetpack",      "Inherit_EMP_Tatooine_Parent",   "EMP_Master", "Empire",       "EMP_Luke" },
-    { "reb_moonsystemtestbed_01",       "reb_moonsystemtestbed_01",       "Inherit_RumpusRoom_Parent",     nil,          "ToyBox",       "TCW_Anakin" },
+    { "tcw_challengemoons",            "tcw_challengemoons" },
+    { "tcw_chal01_deathstar",          "tcw_chal01_deathstar" },
+    { "tcw_chal03_icefire",            "tcw_chal03_icefire" },
+    { "tcw_cor_jeditemplemarketing",    "tcw_cor_jeditemplemarketing" },
+    { "geonosis_geometry_wip",          "geonosis_geometry_wip" },
+    { "deathstar_throneroom14_1",       "deathstar_throneroom14_1" },
+    { "deathstar_throneroom15",         "deathstar_throneroom15" },
+    { "emp_hoth_render",               "emp_hoth_render" },
+    { "tat_assets",                    "tat_assets" },
+    { "proto_artset_tatooine",          "proto_artset_tatooine" },
+    { "emp_tatt_01_scaletest",          "emp_tatt_01_scaletest" },
+    { "tat_building_comparison",       "tat_building_comparison" },
+    { "tat_outscource_assetpack",      "tat_outscource_assetpack" },
+    { "reb_moonsystemtestbed_01",       "reb_moonsystemtestbed_01" },
 }
 
 for i = 1, #starwars_cut do
-    local zone, archive, inherit, master, playset, avatar =
-        starwars_cut[i][1], starwars_cut[i][2], starwars_cut[i][3], starwars_cut[i][4], starwars_cut[i][5], starwars_cut[i][6]
+    local zone, archive = starwars_cut[i][1], starwars_cut[i][2]
     Z[zone] = {
-        _Inherits_ = inherit,
-        MasterZone = master,
-        PlaysetProperties = playset,
+        ReturnToHubString = "Scn_ReturnToyBox",
+        _Inherits_ = "Inherit_RumpusRoom_Parent",
+        PlaysetProperties = "ToyBox",
         _ShowInMenu_ = false,
         availableInConsumerBuild = true,
         availableInShippingBuild = true,
         isPrebuiltToyBox = true,
         SplitScreenAllowed = true,
-        DefaultAvatar = avatar,
-        FallbackAvatar = avatar,
+        DefaultAvatar = "TCW_Anakin",
+        FallbackAvatar = "TCW_Anakin",
         InitPlayersAtClosestCheckpoint = false,
         JoiningPlayersStartAtClosestCheckpoint = false,
         ZonePath = "worlds/" .. archive .. "/" .. archive,
@@ -213,16 +164,16 @@ local insideout_cut = {
 for i = 1, #insideout_cut do
     local zone, archive = insideout_cut[i][1], insideout_cut[i][2]
     Z[zone] = {
-        _Inherits_ = "Inherit_InsideOut_Parent",
-        MasterZone = "OUT_Master",
-        PlaysetProperties = "InsideOut",
+        ReturnToHubString = "Scn_ReturnToyBox",
+        _Inherits_ = "Inherit_RumpusRoom_Parent",
+        PlaysetProperties = "ToyBox",
         _ShowInMenu_ = false,
         availableInConsumerBuild = true,
         availableInShippingBuild = true,
         isPrebuiltToyBox = true,
         SplitScreenAllowed = true,
-        DefaultAvatar = "OUT_Joy",
-        FallbackAvatar = "OUT_Joy",
+        DefaultAvatar = "TCW_Anakin",
+        FallbackAvatar = "TCW_Anakin",
         InitPlayersAtClosestCheckpoint = false,
         JoiningPlayersStartAtClosestCheckpoint = false,
         ZonePath = "worlds/" .. archive .. "/" .. archive,
@@ -244,13 +195,14 @@ for i = 1, #aladdin_prototypes do
     Z[zone] = {
         ReturnToHubString = "Scn_ReturnToyBox",
         _Inherits_ = "Inherit_RumpusRoom_Parent",
+        PlaysetProperties = "ToyBox",
         _ShowInMenu_ = false,
         availableInConsumerBuild = true,
         availableInShippingBuild = true,
         isPrebuiltToyBox = true,
         SplitScreenAllowed = true,
-        DefaultAvatar = "las_stitch",
-        FallbackAvatar = "las_stitch",
+        DefaultAvatar = "TCW_Anakin",
+        FallbackAvatar = "TCW_Anakin",
         InitPlayersAtClosestCheckpoint = false,
         JoiningPlayersStartAtClosestCheckpoint = false,
         ZonePath = "worlds/" .. archive .. "/" .. archive,
@@ -277,6 +229,7 @@ for i = 1, #dev_prototypes do
     Z[zone] = {
         ReturnToHubString = "Scn_ReturnToyBox",
         _Inherits_ = "Inherit_RumpusRoom_Parent",
+        PlaysetProperties = "ToyBox",
         _ShowInMenu_ = false,
         availableInConsumerBuild = true,
         availableInShippingBuild = true,
